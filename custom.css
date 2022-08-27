@@ -1,0 +1,187 @@
+div.column
+{
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+
+/*mastodon长图补丁 v2.1 by Shioko*/
+
+.image-loader {
+	align-items:center;
+}
+.zoomable-image {
+	display: flex;
+    height:auto;
+	max-height: 100%;
+    width: auto;
+    max-width: 95%;
+	overflow: auto !important;
+	align-items:center;
+}
+.zoomable-image:hover {
+	align-items: flex-start;
+}
+
+.zoomable-image img {
+	max-height: 100%;
+    max-width:95%;
+}
+.zoomable-image img:hover {
+	max-height: 2000%;
+    max-width:95%;
+}
+
+
+/*hashtag style by @slashine@slashine.onl and @flyover@pullopen.xyz*/
+.mention.hashtag.status-link{
+background-color: #93AEFD36;
+padding: 0px 5px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+border-style: dashed;
+border-color: #93AEFD;
+border-width: 0.5px;
+border-radius: 5px;
+}
+
+.mention.hashtag.status-link:hover{
+background-color: #cdd2f54f;
+}
+
+/* 猫耳 */
+.notification .status__avatar::before,
+.notification .status__avatar::after {
+  display: none !important;
+}
+
+.status__wrapper .status:first-child .status__avatar::before,
+.status__wrapper .status:first-child .status__avatar::after {
+  content: "";
+  display: inline-block;
+  border: 3px solid;
+  box-sizing: border-box;
+  width: 50%;
+  height: 50%;
+  background-color: inherit;
+  border-color: #91a1eca3;
+  position: absolute;
+  z-index: 0;
+}
+
+.status__avatar::before {
+  border-radius: 90% 40% 100% 100%;
+  transform: rotate(-37.6deg) skew(-30deg);
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.status__avatar::after {
+  border-radius: 40% 90% 100% 100%;
+  transform: rotate(37.6deg) skew(30deg);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.account__avatar {
+  border-radius: 30%;
+  z-index: 1;
+}
+
+.status__avatar:hover::before {
+  animation: earwiggleright 1s infinite;
+}
+
+.status__avatar:hover::after {
+  animation: earwiggleleft 1s infinite;
+}
+
+@keyframes earwiggleleft {
+  from { transform: rotate(27.6deg) skew(30deg); }
+  25% { transform: rotate(10deg) skew(30deg); }
+  50% { transform: rotate(20deg) skew(30deg); }
+  75% { transform: rotate(0deg) skew(30deg); }
+  to { transform: rotate(27.6deg) skew(30deg); }
+}
+
+@keyframes earwiggleright {
+  from { transform: rotate(-37.6deg) skew(-30deg); }
+  25% { transform: rotate(-10deg) skew(-30deg); }
+  50% { transform: rotate(-20deg) skew(-30deg); }
+  75% { transform: rotate(-0deg) skew(-30deg); }
+  to { transform: rotate(-37.6deg) skew(-30deg); }
+}
+
+.drawer__inner {
+    z-index: 2;
+}
+
+/* 邀请页面规则 */
+label[for=invite_max_uses]:after {
+  content: ' - 请私下发送给有需要的朋友，不要公开传播邀请链接！';
+  visibility: visible;
+  color: yellow;
+}
+
+/* 表情包放大 */
+/* START mastodon emoji scaling by @eh5@eh5.me */
+
+.reply-indicator__content,
+.status__content:not(.status__content--collapsed) {
+  overflow: unset;
+}
+
+.account__header__content .emojione,
+.reply-indicator__content .emojione,
+.status__content:not(.status__content--collapsed) .emojione {
+  position: relative;
+  z-index: 10;
+  transform-origin: center;
+  /* Animation duration */
+  transition: 200ms ease-in-out;
+}
+
+.account__header__content .emojione:hover,
+.reply-indicator__content .emojione:hover,
+.status__content:not(.status__content--collapsed) .emojione:hover {
+  z-index: 11;
+  /* Scale up 2 times */
+  transform: scale(2);
+  /* shadows around image edges */
+  filter: drop-shadow(0 0 1px rgba(255,255,255,0.25));
+}
+
+.directory__card .account__header__content .emojione:hover {
+  transform: unset;
+}
+
+/* END mastodon emoji scaling by @eh5@eh5.me */
+
+
+/*toot button by slashine 073020, edited by salt 122920*/
+
+div.drawer button.button--block
+{
+text-indent: -99999px;
+line-height: 0;
+}
+
+div.drawer button.button--block::after
+{
+content: "🚲 嘟嘟！";
+text-indent: 0;
+line-height: initial;
+display: block;
+}
+
+
+/* 隐藏统计数据
+.hero-widget__footer__column {
+    display: none;
+    visibility: hidden;
+}*/
